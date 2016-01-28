@@ -6,8 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
       "babel": "node_modules/.bin/babel *.js --presets es2015 --source-maps inline -d build/",
+      "babel-external": "node_modules/.bin/babel *.js --presets es2015 --source-maps -d build/",
       "concat": "mkdir -p target/ && for i in build/*.js ; do cat $i ; echo ''; done > target/out.js",
-      "clean": "rm -rf target/  build/"
+      "concat-external": "mkdir -p target/ && for i in build/*.js ; do cat $i ; echo ''; done > target/out.js && cp build/*.map target/",
+      "clean": "rm -rf target/ build/"
   },
   "author": "",
   "license": "ISC",
