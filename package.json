@@ -4,11 +4,12 @@
   "description": "",
   "main": "bar.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-      "babel": "node_modules/.bin/babel *.js --presets es2015 --source-maps inline -d build/",
-      "babel-external": "node_modules/.bin/babel *.js --presets es2015 --source-maps -d build/",
-      "concat": "mkdir -p target/ && for i in build/*.js ; do cat $i ; echo ''; done > target/out.js",
-      "concat-external": "mkdir -p target/ && for i in build/*.js ; do cat $i ; echo ''; done > target/out.js && cp build/*.map target/",
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "dev": "npm run babel && npm run babel-external && npm run concat && npm run concat-external",
+      "babel": "node_modules/.bin/babel *.js --presets es2015 --source-maps inline -d build/inline",
+      "babel-external": "node_modules/.bin/babel *.js --presets es2015 --source-maps -d build/external",
+      "concat": "mkdir -p target/inline && for i in build/inline/*.js ; do cat $i ; echo ''; done > target/inline/out.js && cp build/inline/* target/inline",
+      "concat-external": "mkdir -p target/external && for i in build/external/*.js ; do cat $i ; echo ''; done > target/external/out.js && cp build/external/*.map target/external/",
       "clean": "rm -rf target/ build/"
   },
   "author": "",
