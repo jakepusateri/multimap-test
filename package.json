@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
       "babel": "node_modules/.bin/babel *.js --presets es2015 --source-maps inline -d build/",
-      "concat": "for i in build/*.js ; do cat $i ; echo ''; done > target/out.js",
+      "concat": "mkdir -p target/ && for i in build/*.js ; do cat $i ; echo ''; done > target/out.js",
       "clean": "rm -rf target/  build/"
   },
   "author": "",
